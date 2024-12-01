@@ -10,6 +10,7 @@ import org.testingframework.page.Google;
 import java.nio.file.Paths;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+
 public class BasicCore extends Reporting  {
 
     public Reporting reporting;

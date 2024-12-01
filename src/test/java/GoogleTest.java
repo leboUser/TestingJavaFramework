@@ -13,6 +13,7 @@ public class GoogleTest extends BasicCore{
 
     @Test
     public void Test(){
+
         google = new Google(getPage());
         google.page.navigate("http://google.com");
         reporting.stepWithScreenshot(getPage().title().equalsIgnoreCase("Playwright"),getPage(),"Has Title Playwrite");

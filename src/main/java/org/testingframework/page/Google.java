@@ -6,7 +6,7 @@ import com.microsoft.playwright.Page;
 public class Google {
 
     public Page page;
-    public Locator locator;
+    public Locator locators;
 
     public Google(Page page){
         this.page=page;
