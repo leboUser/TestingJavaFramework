@@ -10,11 +10,6 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 
 public class GoogleTest extends BasicCore{
 
-    @BeforeEach
-    public void Teest(){
-        System.out.println("Wowo");
-    }
-
 
     @Test
     public void Test(){
