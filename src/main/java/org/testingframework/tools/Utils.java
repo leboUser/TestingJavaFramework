@@ -7,17 +7,13 @@ import net.lingala.zip4j.progress.ProgressMonitor;
 import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 
 public class Utils {
 
-    private String path = System.getProperty("user.dir");
 
     public String testDate(){
-        Date date = new Date();
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern("MM-dd-yyyy hh-mm-ss"));
-
     }
 
     public String makefolder(String filepathname ){
@@ -27,10 +23,12 @@ public class Utils {
     }
 
     public void zipfolder(String filePathTestReport,String file) throws IOException {
-        ZipFile zipFile = new ZipFile(file+".zip");
-        ProgressMonitor progressMonitor = zipFile.getProgressMonitor();
-        zipFile.setRunInThread(true);
-        zipFile.addFolder(new File(filePathTestReport));
+        ProgressMonitor progressMonitor;
+        try (ZipFile zipFile = new ZipFile(file + ".zip")) {
+            progressMonitor = zipFile.getProgressMonitor();
+            zipFile.setRunInThread(true);
+            zipFile.addFolder(new File(filePathTestReport));
+        }
 
         while (!progressMonitor.getState().equals(ProgressMonitor.State.READY)) {
             System.out.println("Percentage done: " + progressMonitor.getPercentDone());
