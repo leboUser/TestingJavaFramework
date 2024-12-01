@@ -12,8 +12,6 @@ import java.nio.file.Paths;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class BasicCore extends Reporting  {
 
-    String test;
-    ExtensionContext context;
     public Reporting reporting;
     public static Browser browser;
     public static BrowserContext browercontext;
@@ -33,7 +31,7 @@ public class BasicCore extends Reporting  {
    }
 
     @BeforeEach
-    public void beforeTestExecution(TestInfo testInfo) throws Exception {
+    public void beforeTestExecution(TestInfo testInfo)  {
 
        reporting.setTestName(testInfo.getDisplayName());
        reporting.testCase  = reporting.testCase(reporting.extent);
